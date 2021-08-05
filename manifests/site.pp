@@ -8,6 +8,6 @@ node /^web/ {
   include role::app_server
 }
 
-node /^wdb/ {
+node /^db/ {
   include role::db_server
 }
