@@ -5,7 +5,7 @@ class minecraft (
   file {'/opt/minecraft':
    ensure => directory,
   }
-  file {"${install_dir}/minecraft/server.jar":
+  file { "${install_dir}/server.jar":
     ensure => file,
     source => $url,
     before => Service['minecraft'],
@@ -20,7 +20,7 @@ class minecraft (
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
     # source => 'puppet:///modules/minecraft/minecraft.service',
-    content => epp('minecraft/minecraft.service', {
+    content => epp('minecraft/minecraft.service.epp', {
       install_dir => $install_dir,
     })
   }
